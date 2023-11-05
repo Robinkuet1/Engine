@@ -21,12 +21,12 @@ add_subdirectory(external/zstr)
 
 add_library(engine
         #sources
-        src/Core/Application.cpp
+        src/Core/ApplicationBase.cpp
         src/Core/Window.cpp
 
         #headers
         include/Core/defines.h
-        include/Core/Application.h
+        include/Core/ApplicationBase.h
         include/Core/Window.h
 )
 
