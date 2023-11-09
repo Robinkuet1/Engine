@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
 project(engine)
 
+#remove for prod
+add_compile_definitions(DEBUG)
+
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Emscripten")
   option(BUILD_HTML "Build html also!" ON)
 
@@ -25,9 +28,10 @@ add_library(engine
         src/Core/Window.cpp
 
         #headers
-        include/Core/defines.h
-        include/Core/ApplicationBase.h
-        include/Core/Window.h
+        include/Engine/Core/Defines.h
+        include/Engine/Core/ApplicationBase.h
+        include/Engine/Core/Window.h
+        include/Engine/Core/Log.h
 )
 
 if (NOT EMSCRIPTEN)

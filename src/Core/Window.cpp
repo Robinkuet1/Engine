@@ -1,20 +1,9 @@
-#include "Core/Window.h"
+#include "Engine/Core/Window.h"
 
 #include <GLFW/glfw3.h>
 #include <GL/gl.h>
 
 Window::Window()
-{
-
-}
-
-Window::~Window()
-{
-    glfwDestroyWindow(this->window);
-    glfwTerminate();
-}
-
-void Window::init() 
 {
     //todo add error callback
     glfwInit();
@@ -23,25 +12,51 @@ void Window::init()
 
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    this->window = glfwCreateWindow(640, 480, "example", NULL, NULL);
-    if (!this->window)
+    this->m_pWindow = glfwCreateWindow(640, 480, "example", NULL, NULL);
+    if (!this->m_pWindow)
     {
         glfwTerminate();
     }
-    glfwMakeContextCurrent(this->window);
+    glfwMakeContextCurrent(this->m_pWindow);
 }
 
-void Window::update()
+Window::~Window()
 {
-    glfwSwapBuffers(this->window);
+    glfwDestroyWindow(this->m_pWindow);
+    glfwTerminate();
+}
+
+void Window::Update()
+{
+    glfwSwapBuffers(this->m_pWindow);
     glfwPollEvents();
-    glClearColor(1,0,0,1);
+    m_deltaTime = glfwGetTime() - m_lastTime;
+    m_lastTime = glfwGetTime();
+}
+
+Window& Window::Get()
+{
+    static Window window;
+    return window;
+}
+
+bool Window::ShouldClose() {
+#ifdef DEBUG
+    return glfwWindowShouldClose(this->m_pWindow) || glfwGetKey(this->m_pWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS;
+#else
+    return glfwWindowShouldClose(this->window);
+#endif
+}
+
+void Window::Close() {
+    glfwSetWindowShouldClose(this->m_pWindow, true);
+}
+
+void Window::Clear() {
+    glClearColor(0,0,0,1);
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-Window& Window::get() 
-{
-    static Window window;
-
-    return window;
+f64 Window::GetDeltaTime() {
+    return m_deltaTime;
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/defines.h"
+#include "Engine/Core/Defines.h"
 
 //forward declarations
 class GLFWwindow;
@@ -11,13 +11,22 @@ public:
     Window(Window const&) = delete;
     void operator=(Window const&) = delete;
     
-    void init();
-    void update();
-    static Window& get();
+    void Update();
+    static Window& Get();
+
+    bool ShouldClose();
+
+    void Clear();
+    void Close();
+
+    f64 GetDeltaTime();
 
 private:
     Window(); //private constructor to not allow instantiations outside of this singleton
     ~Window();
 
-    GLFWwindow* window;
+    f64 m_lastTime = 0;
+    f64 m_deltaTime = 0;
+
+    GLFWwindow* m_pWindow = nullptr;
 };

@@ -22,10 +22,13 @@ enum Platform : u8 {
 
 #if defined(__linux__)
 constexpr Platform PLATFORM = LINUX;
+#define PLATFORM_LINUX
 #elif defined(_WIN32)
 constexpr Platform PLATFORM = WINDOWS;
+#define PLATFORM_WINDOWS
 #elif defined(__EMSCRIPTEN__)
 constexpr Platform PLATFORM = WEB;
+#define PLATFORM_WEB
 #else
 constexpr Platform PLATFORM = UNKNOWN;
 #endif
