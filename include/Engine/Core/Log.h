@@ -21,7 +21,7 @@ static void log(T t, Args... args){
 
 #define LOG_ERROR(...) { log("\033[1;31m[ERROR]\033[0m", __FUNCTION__, "in", __FILENAME__, __VA_ARGS__); }
 #define LOG_WARNING(...) { log("\033[1;33m[WARNING]\033[0m", __FUNCTION__, "in", __FILENAME__, __VA_ARGS__); }
-#define LOG_INFO(...) { log("[INFO]", __FUNCTION__, "in", __FILENAME__, __VA_ARGS__); }
-#define LOG_DEBUG(...) { log("\033[1;37m[DEBUG]\033[0m", __FUNCTION__, "in", __FILENAME__, __VA_ARGS__); }
+#define LOG_INFO(...) { log("[INFO]", __VA_ARGS__); }
+#define LOG_DEBUG(...) { log("\033[1;37m[DEBUG]\033[0m", __VA_ARGS__); }
 
 #define ASSERT(cond) { if (!cond) { log("\033[1;31m[ASSERT FAILED]\033[0m", __FUNCTION__, "in", __FILENAME__, #cond, "failed"); } }

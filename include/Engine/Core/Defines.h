@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 typedef unsigned char u8;
 typedef unsigned short u16;
@@ -12,6 +13,8 @@ typedef long long i64;
 
 typedef float f32;
 typedef double f64;
+
+typedef std::string string;
 
 enum Platform : u8 {
   LINUX = 0,
