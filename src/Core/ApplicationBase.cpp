@@ -6,9 +6,11 @@ void ApplicationBase::Run() {
     Window::Get();
     OnInitialize();
     while (!Window::Get().ShouldClose()) {
-        Window::Get().Update();
+        Window::Get().BeginFrame();
+        Window::Get().Clear();
         OnUpdate(Window::Get().GetDeltaTime());
         OnRender();
+        Window::Get().EndFrame();
     }
     OnShutdown();
 }

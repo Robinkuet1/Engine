@@ -8,10 +8,14 @@ class GLFWwindow;
 class Window
 {
 public:
+    friend class Input;
+
     Window(Window const&) = delete;
     void operator=(Window const&) = delete;
     
-    void Update();
+    void BeginFrame();
+    void EndFrame();
+
     static Window& Get();
 
     bool ShouldClose();

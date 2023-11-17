@@ -7,7 +7,7 @@ add_compile_definitions(DEBUG)
 if (${CMAKE_SYSTEM_NAME} STREQUAL "Emscripten")
   option(BUILD_HTML "Build html also!" ON)
 
-  set(EMSCRIPTEN TURE)
+  set(EMSCRIPTEN TRUE)
   set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE BOTH)
 endif()
 
@@ -21,6 +21,7 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(external/glm)
 add_subdirectory(external/zstr)
+add_subdirectory(external/imgui)
 
 add_library(engine
         #sources
@@ -32,12 +33,11 @@ add_library(engine
         include/Engine/Core/ApplicationBase.h
         include/Engine/Core/Window.h
         include/Engine/Core/Log.h
+        src/Core/Input.cpp
 )
 
 if (NOT EMSCRIPTEN)
-  add_subdirectory(external/glfw)
   target_include_directories(engine PUBLIC external/glfw/include)
-  target_link_libraries(engine glfw)
   if (WIN32)
     target_link_libraries(engine opengl32)
   else()
@@ -57,6 +57,8 @@ endif()
 
 target_include_directories(engine PUBLIC external/glm)
 target_include_directories(engine PUBLIC include)
+target_include_directories(engine PUBLIC external/imgui)
 
 target_link_libraries(engine glm)
 target_link_libraries(engine zstr::zstr)
+target_link_libraries(engine imgui)

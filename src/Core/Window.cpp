@@ -1,5 +1,9 @@
 #include "Engine/Core/Window.h"
 
+#include <imgui.h>
+#include <backends/imgui_impl_glfw.h>
+#include <backends/imgui_impl_opengl3.h>
+
 #include <GLFW/glfw3.h>
 #include <GL/gl.h>
 
@@ -18,6 +22,20 @@ Window::Window()
         glfwTerminate();
     }
     glfwMakeContextCurrent(this->m_pWindow);
+
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+
+    // Setup Dear ImGui style
+    ImGui::StyleColorsDark();
+    //ImGui::StyleColorsLight();
+
+    // Setup Platform/Renderer backends
+    ImGui_ImplGlfw_InitForOpenGL(m_pWindow, true);
+    ImGui_ImplOpenGL3_Init("#version 460");
 }
 
 Window::~Window()
@@ -26,12 +44,23 @@ Window::~Window()
     glfwTerminate();
 }
 
-void Window::Update()
+void Window::BeginFrame()
 {
     glfwSwapBuffers(this->m_pWindow);
     glfwPollEvents();
+    // Start the Dear ImGui frame
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
+
     m_deltaTime = glfwGetTime() - m_lastTime;
     m_lastTime = glfwGetTime();
+}
+
+void Window::EndFrame()
+{
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
 Window& Window::Get()
