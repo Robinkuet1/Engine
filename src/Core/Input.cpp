@@ -1,6 +1,7 @@
 #include "Engine/Core/Input.h"
 #include "Engine/Core/Log.h"
 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 void Input::Initialize() {
