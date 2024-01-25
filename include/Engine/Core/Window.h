@@ -11,59 +11,60 @@ class GLFWwindow;
  * Method. The window will be automatically created when first accessed.
  */
 class Window {
-  friend class Input;
+ friend class Input;
 
 public:
-  //delete copy constructor
-  Window(Window const &) = delete;
-  void operator=(Window const &) = delete;
+ //delete copy constructor
+ Window(Window const&) = delete;
 
-  /**
-   * \brief BeginFrame should be called at begin of frame
-   * Prepears everything for render.
-   */
-  void BeginFrame();
+ void operator=(Window const&) = delete;
 
-  /**
-   * \brief Shows rendered scean to screen
-   */
-  void EndFrame();
+ /**
+  * \brief BeginFrame should be called at begin of frame
+  * Prepears everything for render.
+  */
+ void BeginFrame();
 
-  /**
-   * \brief Get Window singleton. Globally accessable
-   * \return Window Singleton
-   */
-  static Window &Get();
+ /**
+  * \brief Shows rendered scean to screen
+  */
+ void EndFrame();
 
-  /**
-   * \brief Should the window close
-   * \return True if Close button clicked
-   */
-  bool ShouldClose();
+ /**
+  * \brief Get Window singleton. Globally accessable
+  * \return Window Singleton
+  */
+ static Window& Get();
 
-  /**
-   * \brief Clear the screen
-   */
-  void Clear();
+ /**
+  * \brief Should the window close
+  * \return True if Close button clicked
+  */
+ bool ShouldClose();
 
-  /**
-   * \brief Close the screen
-   */
-  void Close();
+ /**
+  * \brief Clear the screen
+  */
+ void Clear();
 
-  /**
-   * \brief Get the time between frames
-   * \return Time between frames
-   */
-  f64 GetDeltaTime();
+ /**
+  * \brief Close the screen
+  */
+ void Close();
+
+ /**
+  * \brief Get the time between frames
+  * \return Time between frames
+  */
+ f64 GetDeltaTime();
 
 private:
-  Window(); // private constructor to not allow instantiations outside of this
-            // singleton
-  ~Window();
+ Window(); // private constructor to not allow instantiations outside of this
+ // singleton
+ ~Window();
 
-  f64 m_lastTime, m_deltaTime = 0;
-  i32 m_width, m_height = 0;
+ f64 m_lastTime, m_deltaTime = 0;
+ i32 m_width, m_height = 0;
 
-  GLFWwindow *m_pWindow = nullptr;
+ GLFWwindow* m_pWindow = nullptr;
 };

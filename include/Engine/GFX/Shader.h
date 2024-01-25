@@ -8,6 +8,7 @@
 
 class Shader {
   friend class ShaderBuilder;
+
   friend std::unique_ptr<Shader> std::make_unique<Shader>();
 
 public:
@@ -17,6 +18,7 @@ public:
    * \brief Set this shader as Active
    */
   void Use();
+
   void UniformF64(string location, f64 data);
 
 private:

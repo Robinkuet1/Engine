@@ -16,10 +16,13 @@ enum VertexAttributeType {
 class VertexBufferBuilder {
 public:
   explicit VertexBufferBuilder(string name = "");
+
   ~VertexBufferBuilder();
 
   VertexBufferBuilder& AddVertexDataDirect(const std::vector<f32>& vertices);
+
   VertexBufferBuilder& AddIndexDataDirect(const std::vector<u32>& indices);
+
   VertexBufferBuilder& AddVertexAttribute(i32 size, VertexAttributeType type = FLOAT);
 
   [[nodiscard]] std::unique_ptr<VertexBuffer> Build() const;

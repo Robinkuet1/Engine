@@ -9,9 +9,11 @@ class VertexBuffer {
 
 public:
   VertexBuffer();
+
   ~VertexBuffer();
 
   void Use();
+
   void Draw();
 
 private:

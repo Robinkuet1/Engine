@@ -9,16 +9,23 @@
 class ShaderBuilder {
 public:
   explicit ShaderBuilder(string name = "");
+
   ~ShaderBuilder();
 
   ShaderBuilder(const ShaderBuilder&) = delete;
+
   ShaderBuilder& operator=(const ShaderBuilder&) = delete;
 
   ShaderBuilder& addShader(GLenum shaderType, const string& shaderSource);
+
   ShaderBuilder& addShaderFromFile(GLenum shaderType, const string& filePath);
+
   ShaderBuilder& setShaderDefine(const string& defines);
+
   ShaderBuilder& setShaderIncludePath(GLenum shaderType, const string& includePath);
+
   ShaderBuilder& setShaderAttributeLocation(const string& attributeName, GLuint location);
+
   ShaderBuilder& setShaderUniformBlockBinding(const string& blockName, GLuint bindingPoint);
 
   /**
@@ -27,6 +34,7 @@ public:
   ShaderBuilder& enableRecompile();
 
   [[nodiscard]] std::unique_ptr<Shader> Build();
+
 private:
   bool recompile = false;
   string name;
