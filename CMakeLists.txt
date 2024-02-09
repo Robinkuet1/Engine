@@ -23,6 +23,7 @@ add_subdirectory(external/glm)
 add_subdirectory(external/zstr)
 add_subdirectory(external/imgui)
 add_subdirectory(external/glad)
+add_subdirectory(external/ZipLib)
 
 add_library(engine
         #sources
@@ -44,8 +45,17 @@ add_library(engine
         src/GFX/VertexBufferBuilder.cpp
         src/GFX/VertexBuffer.cpp
         src/GFX/VertexBufferBuilder.cpp
-        include/Engine/Utils/List.h
-        src/Utils/List.cpp
+        include/Engine/GFX/Camera.h
+        src/GFX/Camera.cpp
+        include/Engine/GFX/FPVCamera.h
+        src/GFX/FPVCamera.cpp
+        include/Engine/GFX/ModelLoader.h
+        include/Engine/GFX/Model.h
+        include/Engine/Math/Transform.h
+        src/GFX/ModelLoader.cpp
+        src/Math/Transform.cpp
+        include/Engine/GFX/ModelInstance.h
+        src/GFX/ModelInstance.cpp
 )
 
 if (NOT EMSCRIPTEN)
@@ -70,9 +80,11 @@ endif()
 target_include_directories(engine PUBLIC external/glm)
 target_include_directories(engine PUBLIC external/imgui)
 target_include_directories(engine PUBLIC external/glad)
+target_include_directories(engine PUBLIC external/ZipLib)
 target_include_directories(engine PUBLIC include)
 
 target_link_libraries(engine glm)
 target_link_libraries(engine glad)
 target_link_libraries(engine zstr::zstr)
 target_link_libraries(engine imgui)
+target_link_libraries(engine ZIPLIB)

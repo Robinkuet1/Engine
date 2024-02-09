@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "build/external/glm/glm",
+		"source" : "/home/kuttelr/work/cpp/Engine/external/glm/glm"
+	}
+}

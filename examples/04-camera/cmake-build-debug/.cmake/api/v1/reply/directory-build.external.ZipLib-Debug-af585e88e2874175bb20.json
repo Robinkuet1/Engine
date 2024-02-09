@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "build/external/ZipLib",
+		"source" : "/home/kuttelr/work/cpp/Engine/external/ZipLib"
+	}
+}

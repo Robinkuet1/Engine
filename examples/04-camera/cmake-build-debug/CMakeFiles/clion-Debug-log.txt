@@ -1,0 +1,11 @@
+/snap/clion/263/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/263/bin/ninja/linux/x64/ninja -G Ninja -S /home/kuttelr/work/cpp/Engine/examples/04-camera -B /home/kuttelr/work/cpp/Engine/examples/04-camera/cmake-build-debug
+-- GLM: Version 0.9.9.9
+-- zstr - found ZLIB (version: 1.2.11)
+-- zstr - added INTERFACE target 'zstr::zstr'
+          includes : /home/kuttelr/work/cpp/Engine/external/zstr/src;/usr/include
+          libraries: ZLIB::ZLIB
+          features : cxx_std_11
+-- Including X11 support
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/kuttelr/work/cpp/Engine/examples/04-camera/cmake-build-debug

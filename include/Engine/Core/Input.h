@@ -164,10 +164,13 @@ public:
   static void OnKeyUp(Key k, std::function<void()> f);
 
   static bool IsMouseButtonDown(MouseButton b);
-  static void OnMouseButtonDown(std::function<void()> f);
-  static void OnMouseButtonUp(std::function<void()> f);
+  static void OnMouseButtonDown(std::function<void(MouseButton)> f);
+  static void OnMouseButtonUp(std::function<void(MouseButton)> f);
   static void OnMouseButtonDown(MouseButton b, std::function<void()> f);
   static void OnMouseButtonUp(MouseButton b, std::function<void()> f);
+
+  static void SetCursorEnable();
+  static void SetCursorDisable();
 
   inline static GLFWwindow *window;
   inline static std::vector<std::function<void(Key)>> OnKeyDownCallback;

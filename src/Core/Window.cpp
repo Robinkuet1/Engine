@@ -12,8 +12,8 @@
 Window::Window() {
   //todo add error callback
   glfwInit();
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, this->m_glVersion.first);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, this->m_glVersion.second);
 
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
@@ -76,8 +76,12 @@ bool Window::ShouldClose() {
 #endif
 }
 
-void Window::Close() {
+void Window::Close() const {
   glfwSetWindowShouldClose(this->m_pWindow, true);
+}
+
+std::pair<i32, i32> Window::GetGLVersion() {
+  return this->m_glVersion;
 }
 
 void Window::Clear() {
@@ -93,6 +97,17 @@ void Window::Clear() {
   }
 }
 
-f64 Window::GetDeltaTime() {
+f64 Window::GetDeltaTime() const {
   return m_deltaTime;
+}
+
+void Window::SetCamera(Camera* camera) {
+  this->m_pCamera = camera;
+}
+
+Camera* Window::GetCamera() const {
+  if(this->m_pCamera)
+    return this->m_pCamera;
+  LOG_ERROR("Camera accessed but camera is null")
+  return nullptr;
 }

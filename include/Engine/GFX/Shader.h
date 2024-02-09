@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include <memory>
+#include <glm/mat4x4.hpp>
 
 #include <glad/glad.h>
 
@@ -20,6 +21,7 @@ public:
   void Use();
 
   void UniformF64(string location, f64 data);
+  void UniformMatrix(string location, glm::mat4 matrix);
 
 private:
   Shader();

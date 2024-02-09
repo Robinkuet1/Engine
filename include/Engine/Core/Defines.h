@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <memory>
+#include "Log.h"
 
 // Use these type instead of the normal ones for consistency.
 typedef unsigned char u8;
@@ -17,6 +19,19 @@ typedef double f64;
 
 // prefer string to char* when ever possible
 typedef std::string string;
+
+namespace std {
+  template<typename... Args>
+  string format(const string& format, Args... args) {
+    const int size_s = std::snprintf(nullptr, 0, format.c_str(), args...) + 1; // Extra space for '\0'
+    if (size_s <= 0) { LOG_ERROR("Error during formatting."); }
+    const auto size = static_cast<size_t>(size_s);
+    const std::unique_ptr<char[]> buf(new char[size]);
+    std::snprintf(buf.get(), size, format.c_str(), args...);
+    return basic_string<char>(buf.get(), buf.get() + size - 1); // We don't want the '\0' inside
+  }
+}
+
 
 /**
  * This enum is used to set the platform where this is running on.

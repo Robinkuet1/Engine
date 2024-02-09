@@ -7,3 +7,6 @@
 [submodule "external/zstr"]
 	path = external/zstr
 	url = https://github.com/mateidavid/zstr.git
+[submodule "external/ZipLib"]
+	path = external/ZipLib
+	url = https://github.com/ParadoxGameConverters/ZipLib.git

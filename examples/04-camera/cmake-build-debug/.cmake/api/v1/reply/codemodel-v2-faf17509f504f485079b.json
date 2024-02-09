@@ -1,0 +1,361 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "build",
+					"childIndexes" : 
+					[
+						2,
+						4,
+						5,
+						8,
+						9
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-build-Debug-b96cec737b1333aac5b5.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "/home/kuttelr/work/cpp/Engine",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "build/external/glm",
+					"childIndexes" : 
+					[
+						3
+					],
+					"jsonFile" : "directory-build.external.glm-Debug-06b8a9931c11af41e50e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "/home/kuttelr/work/cpp/Engine/external/glm",
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"build" : "build/external/glm/glm",
+					"jsonFile" : "directory-build.external.glm.glm-Debug-fc2296bb2f29b1dfb345.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.6"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 2,
+					"source" : "/home/kuttelr/work/cpp/Engine/external/glm/glm"
+				},
+				{
+					"build" : "build/external/zstr",
+					"jsonFile" : "directory-build.external.zstr-Debug-0a726478ad015f143feb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 3,
+					"source" : "/home/kuttelr/work/cpp/Engine/external/zstr"
+				},
+				{
+					"build" : "build/external/imgui",
+					"childIndexes" : 
+					[
+						6
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-build.external.imgui-Debug-34b2111760dcad6afedb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 4,
+					"source" : "/home/kuttelr/work/cpp/Engine/external/imgui",
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"build" : "build/external/imgui/build",
+					"childIndexes" : 
+					[
+						7
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-build.external.imgui.build-Debug-7d2fd94ba530f2ebc3cd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 5,
+					"projectIndex" : 5,
+					"source" : "/home/kuttelr/work/cpp/Engine/external/glfw"
+				},
+				{
+					"build" : "build/external/imgui/build/src",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-build.external.imgui.build.src-Debug-19b9a113694b8015ec98.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.4"
+					},
+					"parentIndex" : 6,
+					"projectIndex" : 5,
+					"source" : "/home/kuttelr/work/cpp/Engine/external/glfw/src",
+					"targetIndexes" : 
+					[
+						4,
+						7
+					]
+				},
+				{
+					"build" : "build/external/glad",
+					"jsonFile" : "directory-build.external.glad-Debug-f01fb6c383223e04c591.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 6,
+					"source" : "/home/kuttelr/work/cpp/Engine/external/glad",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "build/external/ZipLib",
+					"jsonFile" : "directory-build.external.ZipLib-Debug-af585e88e2874175bb20.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 7,
+					"source" : "/home/kuttelr/work/cpp/Engine/external/ZipLib",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "camera",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						6,
+						7
+					],
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "engine",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2,
+						3
+					],
+					"name" : "glm",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						6
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "zstr",
+					"parentIndex" : 1
+				},
+				{
+					"childIndexes" : 
+					[
+						5
+					],
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "imgui",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						5
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						6,
+						7
+					],
+					"name" : "GLFW",
+					"parentIndex" : 4,
+					"targetIndexes" : 
+					[
+						4,
+						7
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						8
+					],
+					"name" : "glad",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						9
+					],
+					"name" : "ZIPLIB",
+					"parentIndex" : 1,
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 9,
+					"id" : "ZIPLIB::@ee064e1e5065f3bb9e41",
+					"jsonFile" : "target-ZIPLIB-Debug-1639193a157e7e2aeb94.json",
+					"name" : "ZIPLIB",
+					"projectIndex" : 7
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "camera::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-camera-Debug-70dd18f191359cceceda.json",
+					"name" : "camera",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "engine::@039278ea0a093c55e3e1",
+					"jsonFile" : "target-engine-Debug-e7a92df223e79c1b9daa.json",
+					"name" : "engine",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 8,
+					"id" : "glad::@6ac1667bc98f40fe43a5",
+					"jsonFile" : "target-glad-Debug-ecbb38884aab100dc494.json",
+					"name" : "glad",
+					"projectIndex" : 6
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "glfw::@21420f5240e48f2bf8dd",
+					"jsonFile" : "target-glfw-Debug-595b1354ec60cc7ed059.json",
+					"name" : "glfw",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "imgui::@d97c9388e8a65f0f065f",
+					"jsonFile" : "target-imgui-Debug-c1819c9f9a36996c0e6b.json",
+					"name" : "imgui",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "uninstall::@8e13884c0e718eba9388",
+					"jsonFile" : "target-uninstall-Debug-bc9f7a38310ef6351676.json",
+					"name" : "uninstall",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "update_mappings::@21420f5240e48f2bf8dd",
+					"jsonFile" : "target-update_mappings-Debug-dbfd95ba7d374e5bde6e.json",
+					"name" : "update_mappings",
+					"projectIndex" : 5
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/kuttelr/work/cpp/Engine/examples/04-camera/cmake-build-debug",
+		"source" : "/home/kuttelr/work/cpp/Engine/examples/04-camera"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

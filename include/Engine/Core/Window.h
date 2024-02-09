@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Engine/Core/Defines.h"
+#include "Engine/GFX/Camera.h"
 
 // forward declarations
 class GLFWwindow;
@@ -11,60 +12,77 @@ class GLFWwindow;
  * Method. The window will be automatically created when first accessed.
  */
 class Window {
- friend class Input;
+  friend class Input;
 
 public:
- //delete copy constructor
- Window(Window const&) = delete;
+  //delete copy constructor
+  Window(Window const&) = delete;
 
- void operator=(Window const&) = delete;
+  void operator=(Window const&) = delete;
 
- /**
-  * \brief BeginFrame should be called at begin of frame
-  * Prepears everything for render.
-  */
- void BeginFrame();
+  /**
+   * \brief BeginFrame should be called at begin of frame
+   * Prepears everything for render.
+   */
+  void BeginFrame();
 
- /**
-  * \brief Shows rendered scean to screen
-  */
- void EndFrame();
+  /**
+   * \brief Shows rendered scean to screen
+   */
+  void EndFrame();
 
- /**
-  * \brief Get Window singleton. Globally accessable
-  * \return Window Singleton
-  */
- static Window& Get();
+  /**
+   * \brief Get Window singleton. Globally accessable
+   * \return Window Singleton
+   */
+  static Window& Get();
 
- /**
-  * \brief Should the window close
-  * \return True if Close button clicked
-  */
- bool ShouldClose();
+  /**
+   * \brief Should the window close
+   * \return True if Close button clicked
+   */
+  bool ShouldClose();
 
- /**
-  * \brief Clear the screen
-  */
- void Clear();
+  /**
+   * \brief Clear the screen
+   */
+  void Clear();
 
- /**
-  * \brief Close the screen
-  */
- void Close();
+  /**
+   * \brief Close the screen
+   */
+  void Close() const;
 
- /**
-  * \brief Get the time between frames
-  * \return Time between frames
-  */
- f64 GetDeltaTime();
+  /**
+   * \brief Gets the openGL Version as std::pair
+   */
+  std::pair<i32, i32> GetGLVersion();
+
+  /**
+   * \brief Get the time between frames
+   * \return Time between frames
+   */
+  [[nodiscard]] f64 GetDeltaTime() const;
+
+  /**
+   * \brief Set another camera
+   * \param camera Subclass of Camera superclass
+   */
+  void SetCamera(Camera* camera);
+
+  [[nodiscard]] Camera* GetCamera() const;
 
 private:
- Window(); // private constructor to not allow instantiations outside of this
- // singleton
- ~Window();
+  Window(); // private constructor to not allow instantiations outside of this
+  // singleton
+  ~Window();
 
- f64 m_lastTime, m_deltaTime = 0;
- i32 m_width, m_height = 0;
+  std::pair<i32, i32> m_glVersion = std::make_pair(4, 6);
 
- GLFWwindow* m_pWindow = nullptr;
+  f64 m_lastTime = 0, m_deltaTime = 0;
+  i32 m_width = 0, m_height = 0;
+
+  GLFWwindow* m_pWindow = nullptr;
+
+  Camera* m_pCamera = nullptr;
 };

@@ -3,6 +3,7 @@
 #include "Engine/GFX/ShaderBuilder.h"
 
 #include "Engine/Core/Log.h"
+#include "Engine/Core/Window.h"
 
 ShaderBuilder::ShaderBuilder(string name) : name(std::move(name)){
   shader = std::make_unique<Shader>();
